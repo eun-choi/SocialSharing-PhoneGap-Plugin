@@ -42,14 +42,14 @@
     </config-file>
 
     <preference name="PHOTO_LIBRARY_ADD_USAGE_DESCRIPTION" default="This app requires photo library access to function properly." />
-    <config-file target="*-Info.plist" parent="NSPhotoLibraryAddUsageDescription">
+    <!--<config-file target="*-Info.plist" parent="NSPhotoLibraryAddUsageDescription">
       <string>$PHOTO_LIBRARY_ADD_USAGE_DESCRIPTION</string>
-    </config-file>
+    </config-file>-->
 
     <preference name="PHOTO_LIBRARY_USAGE_DESCRIPTION" default="This app requires photo library access to function properly." />
-    <config-file target ="*-Info.plist" parent="NSPhotoLibraryUsageDescription">
+    <!--<config-file target ="*-Info.plist" parent="NSPhotoLibraryUsageDescription">
       <string>$PHOTO_LIBRARY_USAGE_DESCRIPTION</string>
-    </config-file>
+    </config-file>-->
 
     <header-file src="src/ios/NSString+SSURLEncoding.h"/>
     <source-file src="src/ios/NSString+SSURLEncoding.m"/>
