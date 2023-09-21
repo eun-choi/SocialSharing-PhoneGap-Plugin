@@ -25,7 +25,7 @@
     <engine name="cordova" version=">=3.0.0"/>
   </engines>
 
-  <dependency id="es6-promise-plugin" version="^4.1.0" />
+  <!--<dependency id="es6-promise-plugin" version="^4.1.0" />-->
 
   <js-module src="www/SocialSharing.js" name="SocialSharing">
     <clobbers target="window.plugins.socialsharing" />
@@ -80,13 +80,25 @@
     </config-file>
 
     <config-file target="AndroidManifest.xml" parent="/*">
-      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
+      <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+      <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
     </config-file>
 
     <config-file target="AndroidManifest.xml" parent="/manifest/application">
       <provider android:authorities="${applicationId}.sharing.provider" android:exported="false" android:grantUriPermissions="true" android:name="nl.xservices.plugins.FileProvider">
         <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/sharing_paths" />
       </provider>
+    </config-file>
+
+    <config-file target="AndroidManifest.xml" parent="/*">
+      <queries>
+        <package android:name="com.whatsapp" />
+        <intent>
+          <action android:name="android.intent.action.SENDTO" />
+          <data android:scheme="mailto" />
+        </intent>
+      </queries>
     </config-file>
 
     <source-file src="src/android/nl/xservices/plugins/SocialSharing.java" target-dir="src/nl/xservices/plugins"/>
